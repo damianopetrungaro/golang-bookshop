@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  bookshop:
+    image: bookshop:prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/go/src/bookshop/
+    ports:
+      - 80:80
