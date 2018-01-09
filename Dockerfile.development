@@ -3,8 +3,11 @@ FROM golang:latest
 COPY . /go/src/github.com/damianopetrungaro/golang-bookshop
 WORKDIR /go/src/github.com/damianopetrungaro/golang-bookshop
 
+ENV SQL_CONNECTION_URL postgres://root:root@postgresql/bookshop?sslmode=disable
+
 RUN curl https://glide.sh/get | sh && \
     go get github.com/go-task/task/cmd/task && \
+    go get github.com/rubenv/sql-migrate/... && \
     glide install
 
 ENTRYPOINT task refresh --watch

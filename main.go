@@ -8,6 +8,6 @@ import (
 
 func main() {
 	router := mux.NewRouter()
-	book.LoadRoutes("/books", router)
+	book.LoadRoutes("/api/books", router)
 	http.ListenAndServe(":80", router)
 }

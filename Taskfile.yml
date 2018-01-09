@@ -1,7 +1,12 @@
 refresh:
   desc: Refresh the running program.
   cmds:
+    - echo "Killing old process"
     - pkill bookshop || true
+    - echo "Old process killed"
+    - echo "Compiling"
     - go build -o /go/bin/bookshop . && /go/bin/bookshop &
+    - echo "Compiled"
   sources:
-    - ./**/*.*
+    - ./book/**/*.*
+    - ./main.go

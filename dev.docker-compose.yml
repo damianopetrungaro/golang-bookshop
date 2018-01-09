@@ -10,3 +10,24 @@ services:
       - ./:/go/src/github.com/damianopetrungaro/golang-bookshop/
     ports:
       - 80:80
+    networks:
+      - api
+      - persistence
+    depends_on:
+      - postgresql
+  postgresql:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - ./postgresql/:/var/lib/postgresql/data
+    networks:
+      - persistence
+networks:
+  api:
+    driver: "bridge"
+  persistence:
+    driver: "bridge"
