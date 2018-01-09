@@ -1,15 +1,13 @@
 package main
 
 import (
-	"fmt"
+	"github.com/damianopetrungaro/golang-bookshop/book"
 	"github.com/gorilla/mux"
 	"net/http"
 )
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello World!")
-	}).Methods("GET")
+	book.LoadRoutes("/books", router)
 	http.ListenAndServe(":80", router)
 }
