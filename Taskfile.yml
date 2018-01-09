@@ -1,13 +1,3 @@
-build:
-  desc: Build the go binary.
-  cmds:
-    - go build -o /go/bin/bookshop .
-
-deps:
-  desc: Install the dependecies.
-  cmds:
-    - glide install
-
 refresh:
   desc: Refresh the running program.
   cmds:
