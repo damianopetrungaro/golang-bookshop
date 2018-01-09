@@ -1,7 +1,7 @@
 build:
   desc: Build the go binary.
   cmds:
-    - go build -o ./bin/bookshop ./src && ./bin/bookshop
+    - go build -o /go/bin/bookshop .
 
 deps:
   desc: Install the dependecies.
@@ -12,6 +12,6 @@ refresh:
   desc: Refresh the running program.
   cmds:
     - pkill bookshop || true
-    - go build -o ./bin/bookshop ./src && ./bin/bookshop &
+    - go build -o /go/bin/bookshop . && /go/bin/bookshop &
   sources:
-    - src/**/*.*
+    - ./**/*.*

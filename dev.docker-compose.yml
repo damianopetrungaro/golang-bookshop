@@ -5,7 +5,9 @@ services:
     image: bookshop
     build: .
     volumes:
-      - ./:/go/src/bookshop/
+      - ./:/go/src/github.com/damianopetrungaro/golang-bookshop/
     ports:
       - 80:80
-    entrypoint: ["task", "refresh", "--watch"]
+    environment:
+      - ENV_NAME=development
+    entrypoint: ["task", "refresh", "-w"]

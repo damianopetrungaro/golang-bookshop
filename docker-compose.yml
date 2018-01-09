@@ -4,7 +4,5 @@ services:
   bookshop:
     image: bookshop
     build: .
-    volumes:
-      - ./:/go/src/bookshop/
     ports:
       - 80:80
