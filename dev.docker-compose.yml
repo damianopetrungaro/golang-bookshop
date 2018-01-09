@@ -3,11 +3,10 @@ version: "3"
 services:
   bookshop:
     image: bookshop
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.development
     volumes:
       - ./:/go/src/github.com/damianopetrungaro/golang-bookshop/
     ports:
       - 80:80
-    environment:
-      - ENV_NAME=development
-    entrypoint: ["task", "refresh", "-w"]

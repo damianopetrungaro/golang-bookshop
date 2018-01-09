@@ -1,0 +1,12 @@
+FROM golang:latest
+
+COPY . /go/src/github.com/damianopetrungaro/golang-bookshop
+WORKDIR /go/src/github.com/damianopetrungaro/golang-bookshop
+
+RUN curl https://glide.sh/get | sh && \
+    go get github.com/go-task/task/cmd/task && \
+    glide install
+
+ENTRYPOINT task refresh --watch
+
+EXPOSE 80
